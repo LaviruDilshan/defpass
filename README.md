@@ -19,7 +19,7 @@
 Make sure you have **Go 1.18+** installed. Then run:
 
 ```bash
-go install github.com/LaviruDeveloper/defpass/cmd/defpass@latest
+go install github.com/LaviruDilshan/defpass/cmd/defpass@latest
 ```
 
 > Make sure `$GOPATH/bin` or `$HOME/go/bin` is in your `PATH`.
