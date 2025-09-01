@@ -2,18 +2,21 @@ package scraper
 
 import (
 	"bufio"
+	"embed"
 	"log"
 	"math/rand"
-	"os"
 	"strings"
 	"time"
 )
 
-// LoadUserAgents loads UAs from txt file
-func LoadUserAgents(filePath string) []string {
-	file, err := os.Open(filePath)
+//go:embed user_agents.txt
+var uaFile embed.FS
+
+// LoadUserAgents loads UAs from embedded txt file
+func LoadUserAgents() []string {
+	file, err := uaFile.Open("user_agents.txt")
 	if err != nil {
-		log.Fatalf("failed to open user_agents file: %v", err)
+		log.Fatalf("failed to open embedded user_agents file: %v", err)
 	}
 	defer file.Close()
 
@@ -26,10 +29,10 @@ func LoadUserAgents(filePath string) []string {
 		}
 	}
 	if err := scanner.Err(); err != nil {
-		log.Fatalf("error reading user_agents file: %v", err)
+		log.Fatalf("error reading embedded user_agents file: %v", err)
 	}
 	if len(agents) == 0 {
-		log.Fatalf("user_agents.txt is empty")
+		log.Fatalf("embedded user_agents.txt is empty")
 	}
 	return agents
 }

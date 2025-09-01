@@ -14,7 +14,7 @@ import (
 func main() {
 	ui.PrintBanner()
 
-	agents := scraper.LoadUserAgents("user_agents.txt")
+	agents := scraper.LoadUserAgents()
 
 	vendors, err := scraper.LoadVendors(agents)
 	if err != nil {
