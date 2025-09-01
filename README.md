@@ -1,5 +1,3 @@
----
-
 # DefPass 🔑
 
 **Default Password Finder CLI** – quickly fetch default passwords for network vendors.
